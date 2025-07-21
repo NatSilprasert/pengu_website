@@ -7,9 +7,22 @@
 body {
   font-family: "Noto Sans Thai", sans-serif;
   color: #1E1E1E;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "prompt-bold-italic";
+  src: url("/fonts/Prompt-Bold-Italic.ttf");
+}
+@font-face {
+  font-family: "prompt-semibold-italic";
+  src: url("/fonts/Prompt-SemiBold-Italic.ttf");
 }
 
 @theme inline {
+    --font-prompt-bold-italic: prompt-bold-italic, "sans-serif";
+    --font-prompt-semibold-italic: prompt-semibold-italic, "sans-serif";
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -126,5 +139,9 @@ body {
 }
 
 .gradient-bg {
-  @apply bg-gradient-to-b from-[#E9F0FE]  to-[#F8FAFE];
+  @apply bg-gradient-to-b from-[#E9F0FE]  to-[#F8FAFE] pb-20;
+}
+
+.aboutus-bg {
+  @apply bg-[radial-gradient(circle_at_50%_-60%,_#3B7EF0_33%,_#171717_58%)]
 }
