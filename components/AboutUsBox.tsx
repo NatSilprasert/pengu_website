@@ -5,11 +5,11 @@ const AboutUsBox = () => {
 
   return (
     <main
-      className="orange-container fixed inset-0 z-90 flex items-center justify-center opacity-0"
+      className="orange-container fixed inset-0 z-0 flex items-center justify-center opacity-0"
     >
       <div className="relative">
         <Image
-          className="relative z-40"
+          className="relative z-0"
           src="/assets/imac.png"
           alt=""
           width={800}

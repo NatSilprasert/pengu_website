@@ -1,23 +1,44 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { SplitText } from 'gsap/all'
+
+type SplitTextInstance = {
+  words: Element[];
+  lines: Element[];
+  chars: Element[];
+  revert: () => void;
+}
+
 
 const AboutUs = () => {
   const [height, setHeight] = useState(0)
   const [scale, setScale] = useState(1)
+  const titleSplitRef = useRef<SplitTextInstance | null>(null)
+  const textSplitRef = useRef<SplitTextInstance | null>(null)
 
-  // ดึงค่า window.innerHeight หลังจาก component mount
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     const h = window.innerHeight
     setHeight(h)
     setScale(h / 360)
+
+    gsap.registerPlugin(SplitText)
+    titleSplitRef.current = SplitText.create('.aboutus-info h1', {
+      type: 'words',
+    })
+    textSplitRef.current = SplitText.create('.aboutus-info p', {
+      type: "chars, lines",
+      linesClass: "text-nowrap overflow-hidden",
+    })
   }, [])
 
   useGSAP(() => {
-    if (height === 0) return // รอจนกว่าค่า height ถูกตั้งค่า
+    if (height === 0) return
 
     // Timeline แรก
     gsap.timeline({
@@ -37,7 +58,7 @@ const AboutUs = () => {
         trigger: '.hero-section',
         start: 'bottom top',
         endTrigger: '.about-section',
-        end: '+=200%',
+        end: '+=100%',
         scrub: true,
         pin: '.gradient-bg',
       },
@@ -60,10 +81,36 @@ const AboutUs = () => {
       },
     })
 
-    tl.from('.aboutus-info', {
-        opacity: 0,
-    })
+    // Text animation timeline
+    if (titleSplitRef.current && textSplitRef.current) {
+      const textTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.screen-section',
+          start: '50% top',
+          endTrigger: document.body,
+          toggleActions: 'play reverse play reverse', 
+        },
+      })
 
+      textTl.from(titleSplitRef.current.words, {
+        opacity: 0,
+        stagger: 0.2,
+      })
+      textTl.from(textSplitRef.current.chars, {
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.005,
+        ease: 'power1.inOut'
+      })
+      textTl.from('.aboutus-info .element', {
+        opacity: 0,
+        ease: 'power1.inOut'
+      }, '<')
+      textTl.from('.about-button', {
+        opacity: 0,
+        ease: 'power1.inOut'
+      }, '<')
+    }
   }, [height, scale])
 
   return (
@@ -92,11 +139,14 @@ const AboutUs = () => {
                   <br />
                   ที่สะท้อนตัวตนธุรกิจของคุณ พร้อมประสบการณ์ที่ตราตรึงใจผู้ใช้งาน
                 </p>
-                <Button className="mt-8 scale-90" variant={'secondary'}>
-                  พูดคุยกับเรา
-                </Button>
+
+                <div className='about-button'>
+                    <Button className=" mt-8 scale-90" variant={'secondary'}>
+                    พูดคุยกับเรา
+                    </Button>
+                </div>
               </div>
-              <div className="mt-[-7%] w-1/2 h-1/3 bg-white rounded-2xl"></div>
+              <div className="element mt-[-6%] w-1/2 h-2/5 bg-white rounded-2xl"></div>
             </section>
           </div>
         </div>
