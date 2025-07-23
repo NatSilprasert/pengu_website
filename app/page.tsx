@@ -1,8 +1,9 @@
-import AboutUs from '@/components/AboutUs'
-import AboutUsBox from '@/components/AboutUsBox'
-import Hero from '@/components/Hero'
-import Navbar from '@/components/Navbar'
-import SmoothWrapper from '@/components/SmoothWrapper'
+import AboutUs from '@/components/sections/AboutUs'
+import AboutUsBox from '@/components/common/AboutUsBox'
+import Hero from '@/components/sections/Hero'
+import Navbar from '@/components/layout/Navbar'
+import SmoothWrapper from '@/components/layout/SmoothWrapper'
+import Testimonial from '@/components/sections/Testimonial'
 import React from 'react'
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
           <Hero />
           <AboutUs />
         </section>
-        <div className='min-h-screen' />
+        <Testimonial />
       </SmoothWrapper>
     </main>
   )

@@ -1,10 +1,11 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
+import Testimonial from './Testimonial'
 
 type SplitTextInstance = {
   words: Element[];
@@ -114,7 +115,7 @@ const AboutUs = () => {
   }, [height, scale])
 
   return (
-    <main className="about-section w-full scale-100 items-center flex flex-col min-h-screen">
+    <main className="about-section w-full scale-100 items-center flex flex-col min-h-screen z-60">
       <div className="monitor relative items-center">
         <Image
           className="relative mr-0.5 z-40"

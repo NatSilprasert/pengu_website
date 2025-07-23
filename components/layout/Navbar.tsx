@@ -2,7 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { MenuIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -111,6 +111,30 @@ const Navbar = () => {
       },
     });
 
+    const changeColorTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".screen-section",
+            start: "bottom top", 
+            endTrigger: document.body,
+            toggleActions: 'play reverse play reverse', 
+        }
+    });
+
+    changeColorTl.to('.nav-menu', {
+        backgroundColor: 'white',
+        color: 'black',
+        duration: 0.5,
+    })
+    changeColorTl.to('.login-button', {
+        backgroundColor: 'white',
+        color: 'black',
+        duration: 0.5,
+    }, '<')
+    changeColorTl.to('.logo-text', {
+        color: 'white',
+        duration: 0.5,
+    }, '<')
+
     return () => st.kill();
   }, []);
 
@@ -144,7 +168,7 @@ const Navbar = () => {
     <div className="z-50 fixed top-0 py-5 w-full flex items-center px-24">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <b className="mt-1 text-lg">PENGU STUDIO</b>
+        <b className="logo-text mt-1 text-lg">PENGU STUDIO</b>
       </div>
 
       {/* Tab Bar */}
