@@ -142,7 +142,7 @@ const AboutUs = () => {
                 </p>
 
                 <div className='about-button'>
-                    <Button className=" mt-8 scale-90" variant={'secondary'}>
+                    <Button className=" mt-8 scale-90 " variant={'secondary'}>
                     พูดคุยกับเรา
                     </Button>
                 </div>

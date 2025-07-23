@@ -149,3 +149,7 @@ body {
 .aboutus-bg {
   @apply bg-[radial-gradient(circle_at_50%_-60%,_#3B7EF0_33%,_#171717_58%)]
 }
+
+.project-bg {
+  @apply bg-[radial-gradient(circle_at_50%_-20%,_#604BAD_10%,_#171717_65%)]
+}

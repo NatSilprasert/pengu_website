@@ -5,6 +5,8 @@ import Navbar from '@/components/layout/Navbar'
 import SmoothWrapper from '@/components/layout/SmoothWrapper'
 import Testimonial from '@/components/sections/Testimonial'
 import React from 'react'
+import Project from '@/components/sections/Project'
+import Service from '@/components/sections/Service'
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
           <AboutUs />
         </section>
         <Testimonial />
+        <Project />
+        <Service />
       </SmoothWrapper>
     </main>
   )
