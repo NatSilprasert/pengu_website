@@ -5,9 +5,8 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
-import Testimonial from './Testimonial'
 
-type SplitTextInstance = {
+export type SplitTextInstance = {
   words: Element[];
   lines: Element[];
   chars: Element[];
@@ -147,7 +146,16 @@ const AboutUs = () => {
                     </Button>
                 </div>
               </div>
-              <div className="element mt-[-6%] w-1/2 h-2/5 bg-white rounded-2xl"></div>
+              
+              <div className=" element relative w-1/2 h-2/5 overflow-hidden rounded-2xl mt-[-6%]">
+                <Image
+                  src="/assets/wave.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
             </section>
           </div>
         </div>

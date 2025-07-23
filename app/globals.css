@@ -151,5 +151,5 @@ body {
 }
 
 .project-bg {
-  @apply bg-[radial-gradient(circle_at_50%_-20%,_#604BAD_10%,_#171717_65%)]
+  @apply bg-[radial-gradient(circle_at_50%_-20%,_#604BAD_10%,_#171717_50%)]
 }

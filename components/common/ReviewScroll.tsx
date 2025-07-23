@@ -152,10 +152,10 @@ const ReviewScroll = ({
   const firstSlider = useRef<HTMLDivElement | null>(null);
   const secondSlider = useRef<HTMLDivElement | null>(null);
 
-  let currentPercent = startPercent;
   const animateDirection = -1;
-
+  
   useEffect(() => {
+    let currentPercent = startPercent;
     let frameId: number;
 
     const animation = () => {
@@ -176,7 +176,7 @@ const ReviewScroll = ({
     frameId = requestAnimationFrame(animation);
 
     return () => cancelAnimationFrame(frameId);
-  }, [speed]);
+  }, [speed, startPercent, animateDirection]);
 
   return (
     <div className='h-full inset-0 flex flex-col overflow-hidden'>

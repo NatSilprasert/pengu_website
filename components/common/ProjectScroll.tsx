@@ -49,10 +49,10 @@ const ProjectScroll = () => {
     const firstSlider = useRef<HTMLDivElement | null>(null);
     const secondSlider = useRef<HTMLDivElement | null>(null);
 
-    let currentPercent = 0;
     const animateDirection = -1;
-
+    
     useEffect(() => {
+        let currentPercent = 0;
         let frameId: number;
 
         const animation = () => {
@@ -61,7 +61,7 @@ const ProjectScroll = () => {
         gsap.set(firstSlider.current, { xPercent: currentPercent });
         gsap.set(secondSlider.current, { xPercent: currentPercent });
 
-        currentPercent += 0.015 * animateDirection;
+        currentPercent += 0.01 * animateDirection;
 
         if (currentPercent <= -100) {
             currentPercent = 0;
@@ -73,7 +73,7 @@ const ProjectScroll = () => {
         frameId = requestAnimationFrame(animation);
 
         return () => cancelAnimationFrame(frameId);
-    }, []);
+    }, [animateDirection]);
 
     return (
         <div className='w-full h-full inset-0 flex overflow-hidden'>
