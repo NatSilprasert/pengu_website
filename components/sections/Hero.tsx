@@ -15,7 +15,7 @@ const Hero = () => {
                     width={48}
                     />
                     <b className='font-semibold text-center text-6xl mt-6'>บริการออกแบบ<br/>และพัฒนาเว็ปไซต์</b>
-                    <p className='mt-3 text-md font-light'>ทำให้ธุรกิจของคุณโดดเด่น ด้วยเว็บไซต์ที่ดึงดูดทุกสายตา</p>
+                    <p className='mt-3 text-md'>ทำให้ธุรกิจของคุณโดดเด่น ด้วยเว็บไซต์ที่ดึงดูดทุกสายตา</p>
 
                     <div className='button mt-6 flex gap-3'>
                         <Button>บริการของเรา</Button>

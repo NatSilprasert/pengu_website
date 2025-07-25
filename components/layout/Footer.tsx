@@ -9,7 +9,7 @@ const Footer = () => {
                 <b>
                     We build
                     <br />website people
-                    <br />can't ignore.
+                    <br />can&apos;t ignore.
                 </b>
             </div>
 

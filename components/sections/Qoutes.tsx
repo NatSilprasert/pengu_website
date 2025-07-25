@@ -30,7 +30,7 @@ const Qoutes = () => {
   })
 
   return (
-    <div className='qoutes-section min-h-screen bg-[#E9F0FE] flex justify-center items-center px-24'>
+    <div className='qoutes-section min-h-screen flex justify-center items-center px-24'>
       <b className='qoutes-message text-center text-8xl text-primary/20'>
         We build websites
         <br/>people can&apos;t ignore.

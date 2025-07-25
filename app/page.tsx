@@ -8,6 +8,7 @@ import React from 'react'
 import Project from '@/components/sections/Project'
 import Qoutes from '@/components/sections/Qoutes'
 import Footer from '@/components/layout/Footer'
+import Service from '@/components/sections/Service'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         </section>
         <Testimonial />
         <Project />
+        <Service />
         <Qoutes />
         <Footer />
       </SmoothWrapper>
