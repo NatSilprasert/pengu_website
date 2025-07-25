@@ -154,3 +154,27 @@ body {
 .project-bg {
   @apply bg-[radial-gradient(circle_at_50%_-20%,_#604BAD_10%,_#171717_50%)]
 }
+
+.theme-dark .nav-menu {
+  @apply bg-[#171717] text-white;
+}
+
+.theme-dark .login-button {
+  @apply bg-[#171717] text-white;
+}
+
+.theme-dark .logo-text {
+  @apply text-[#171717];
+}
+
+.theme-light .nav-menu {
+  @apply bg-white text-black;
+}
+
+.theme-light .login-button {
+  @apply bg-white text-black;
+}
+
+.theme-light .logo-text {
+  @apply text-white;
+}

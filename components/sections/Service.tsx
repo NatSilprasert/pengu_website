@@ -1,23 +1,51 @@
+'use client'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { SplitText } from 'gsap/all'
 import Image from 'next/image'
-import React from 'react'
 
 const Service = () => {
+
+    useGSAP(() => {
+        
+        const textSplit = SplitText.create('.service-subtext', {
+         type: "chars, lines",
+         linesClass: "text-nowrap overflow-hidden",
+       })
+
+        gsap.from(textSplit.chars, {
+            scrollTrigger: {
+            trigger: '.service-subtext',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+            },
+            yPercent: 100,
+            opacity: 0,
+            stagger: 0.005,
+            ease: 'power1.inOut',
+        })
+        
+
+    })
+
+
   return (
-    <main className='min-h-screen flex flex-col items-center py-20 px-48'>
-        <div className='border text-primary/90 border-gray-300 py-1 px-3 rounded-md bg-white/50'>
+    <main className='service-section min-h-screen flex flex-col items-center py-20 px-48'>
+        <div className='border flex items-center gap-1 text-primary/90 border-gray-300 py-1 px-3 rounded-md bg-white/50'>
+            <Image src='/assets/star.png' alt='' width={12} height={12}/>
             <p>services</p>
         </div>
         <b className='font-semibold text-6xl mt-4'>บริการของเรา</b>
-        <p className='text-center mt-4 font-normal'>ครบทุกบริการด้านการออกแบบและพัฒนาเว็ปไซต์ พร้อมขับเคลื่อน<br/>แบรนด์ของคุณสู่ความสำเร็จ</p>
+        <p className='service-subtext text-center mt-4 font-normal'>ครบทุกบริการด้านการออกแบบและพัฒนาเว็ปไซต์ พร้อมขับเคลื่อน<br/>แบรนด์ของคุณสู่ความสำเร็จ</p>
         <div className='grid grid-cols-3 gap-4 mt-12'>
-            <div className="border inset-0 rounded-2xl overflow-hidden bg-white/50">
-                <div className="relative w-full h-52 bg-gray-500">
-                    {/* <Image
-                    src="/assets/your-image.jpg" // เปลี่ยนเป็น path ที่ถูกต้อง
+            <div className="group border inset-0 rounded-2xl overflow-hidden bg-white/50 transition-all duration-300 hover:shadow-md">
+                <div className="relative w-full h-52 bg-gray-500 overflow-hidden">
+                    <Image
+                    src="/assets/landing.png"
                     alt="Project preview"
                     fill
-                    className="object-cover"
-                    /> */}
+                    className="object-cover transition-all duration-500 group-hover:scale-110"
+                    />
                 </div>
                 
                 <div className="p-6 flex flex-col gap-2">
@@ -33,14 +61,14 @@ const Service = () => {
                     </p>
                 </div>
             </div>
-            <div className="border inset-0 rounded-2xl overflow-hidden bg-white/50">
-                <div className="relative w-full h-52 bg-gray-500">
-                    {/* <Image
-                    src="/assets/your-image.jpg" // เปลี่ยนเป็น path ที่ถูกต้อง
+            <div className="group border inset-0 rounded-2xl overflow-hidden bg-white/50 transition-all duration-300 hover:shadow-md">
+                <div className="relative w-full h-52 bg-gray-500 overflow-hidden">
+                    <Image
+                    src="/assets/portfolio.png"
                     alt="Project preview"
                     fill
-                    className="object-cover"
-                    /> */}
+                    className="object-cover transition-all duration-500 group-hover:scale-110"
+                    />
                 </div>
 
                 <div className="p-6 flex flex-col gap-2">
@@ -56,14 +84,14 @@ const Service = () => {
                     </p>
                 </div>
             </div>
-            <div className="border inset-0 rounded-2xl overflow-hidden bg-white/50">
-                <div className="relative w-full h-52 bg-gray-500">
-                    {/* <Image
-                    src="/assets/your-image.jpg" // เปลี่ยนเป็น path ที่ถูกต้อง
+            <div className="group border inset-0 rounded-2xl overflow-hidden bg-white/50 transition-all duration-300 hover:shadow-md">
+                <div className="relative w-full h-52 bg-gray-500 overflow-hidden">
+                    <Image
+                    src="/assets/brand.jpg"
                     alt="Project preview"
                     fill
-                    className="object-cover"
-                    /> */}
+                    className="object-cover transition-all duration-500 group-hover:scale-110"
+                    />
                 </div>
 
                 <div className="p-6 flex flex-col gap-2">
@@ -76,7 +104,7 @@ const Service = () => {
                     <b className="mt-1 font-semibold text-xl">Branding Website</b>
                     <p className="text-sm text-gray-700">
                         ช่วยถ่ายทอดตัวตน วิสัยทัศน์ และคุณค่าของแบรนด์ผ่านดีไซน์ที่น่าจดจำ เหมาะกับธุรกิจที่ต้องการสร้างความน่าเชื่อถือ และสร้างความแตกต่างในตลาดออนไลน์
-
+                            
                     </p>
                 </div>
             </div>

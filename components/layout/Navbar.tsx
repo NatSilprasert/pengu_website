@@ -111,32 +111,33 @@ const Navbar = () => {
       },
     });
 
-    const changeColorTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".screen-section",
-            start: "bottom top", 
-            endTrigger: document.body,
-            toggleActions: 'play reverse play reverse', 
-        }
+    // Change Navbar Color
+    ScrollTrigger.create({
+      trigger: ".screen-section",
+      start: "bottom top",
+      onEnter: () => document.body.classList.add("theme-light"),
+      onLeaveBack: () => document.body.classList.remove("theme-light"),
     });
 
-    changeColorTl.to('.nav-menu', {
-        backgroundColor: 'white',
-        color: 'black',
-        duration: 0.5,
-    })
-    changeColorTl.to('.login-button', {
-        backgroundColor: 'white',
-        color: 'black',
-        duration: 0.5,
-    }, '<')
-    changeColorTl.to('.logo-text', {
-        color: 'white',
-        duration: 0.5,
-    }, '<')
+  // เปลี่ยนเป็น dark เมื่อ scroll ถึง .service-section
+    ScrollTrigger.create({
+      trigger: ".service-section",
+      start: "top 10%",
+      onEnter: () => {
+        document.body.classList.remove("theme-light");
+        document.body.classList.add("theme-dark");
+      },
+      onLeaveBack: () => {
+        document.body.classList.remove("theme-dark");
+        document.body.classList.add("theme-light");
+      },
+    });
+
+
 
     return () => st.kill();
   }, []);
+
 
   /* ---------- TAB INDICATOR ---------- */
   const updateIndicator = (target: HTMLElement) => {
@@ -168,7 +169,7 @@ const Navbar = () => {
     <div className="z-50 fixed top-0 py-5 w-full flex items-center px-24">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <b className="logo-text mt-1 text-lg">PENGU STUDIO</b>
+        <b className="logo-text mt-1 text-lg transition-all duration-500">PENGU STUDIO</b>
       </div>
 
       {/* Tab Bar */}
@@ -192,10 +193,10 @@ const Navbar = () => {
 
       {/* Buttons (Login and Menu) */}
       <div className="ml-auto flex gap-3 items-center origin-center">
-        <Button className="login-button">เข้าสู่ระบบ</Button>
+        <Button className="login-button transition-all duration-500">เข้าสู่ระบบ</Button>
         <Button
           size={"icon"}
-          className="nav-menu p-7"
+          className="nav-menu p-7 transition-all duration-500"
           onClick={openMenuHandler}
         >
           <MenuIcon width={24} />

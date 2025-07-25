@@ -4,11 +4,12 @@ import Hero from '@/components/sections/Hero'
 import Navbar from '@/components/layout/Navbar'
 import SmoothWrapper from '@/components/layout/SmoothWrapper'
 import Testimonial from '@/components/sections/Testimonial'
-import React from 'react'
 import Project from '@/components/sections/Project'
 import Qoutes from '@/components/sections/Qoutes'
 import Footer from '@/components/layout/Footer'
 import Service from '@/components/sections/Service'
+import Process from '@/components/sections/Process'
+import Contact from '@/components/sections/Contact'
 
 const Home = () => {
   return (
@@ -22,7 +23,11 @@ const Home = () => {
         </section>
         <Testimonial />
         <Project />
-        <Service />
+        <section className='gradient-bg'>
+          <Service />
+          <Process />
+        </section>
+        <Contact />
         <Qoutes />
         <Footer />
       </SmoothWrapper>
