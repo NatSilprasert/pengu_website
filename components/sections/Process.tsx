@@ -2,7 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import Image from "next/image";
+import { Sparkle } from "lucide-react";
 import { useRef } from "react";
 
 const Process = () => {
@@ -69,13 +69,13 @@ const Process = () => {
       <div className='flex gap-24'>
         <div>
           <div className="text-process-container flex flex-col gap-4">
-            <div className='border flex items-center gap-1 text-primary/90 border-gray-300 py-1 px-3 rounded-md bg-white/50 w-fit'>
-              <Image src='/assets/star.png' alt='' width={12} height={12}/>
-              <p>
-                process
-              </p>
+            <div className=' flex items-center gap-1 text-[#3C82F6] border border-[#3C82F6]/25 py-1 px-3 rounded-md bg-[#E3EEFF] w-fit'>
+                <Sparkle width={12} height={12} fill="#3C82F6" />
+                <p>
+                    process
+                </p>
             </div>
-            <b className='mt-2 font-semibold text-6xl'>
+            <b className='mt-4 font-semibold text-6xl'>
               ขั้นตอน
               <br />ดำเนินการ
             </b>

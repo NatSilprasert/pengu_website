@@ -2,6 +2,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
+import { Sparkle } from 'lucide-react'
 import Image from 'next/image'
 
 const Service = () => {
@@ -30,10 +31,12 @@ const Service = () => {
 
 
   return (
-    <main className='service-section min-h-screen flex flex-col items-center py-20 px-48'>
-        <div className='border flex items-center gap-1 text-primary/90 border-gray-300 py-1 px-3 rounded-md bg-white/50'>
-            <Image src='/assets/star.png' alt='' width={12} height={12}/>
-            <p>services</p>
+    <main className='service-section flex flex-col items-center py-20 px-48'>
+        <div className='border flex items-center gap-1 text-[#3C82F6] border-[#3C82F6]/25 py-1 px-3 rounded-md bg-[#E3EEFF] w-fit'>
+            <Sparkle width={12} height={12} fill="#3C82F6" />
+            <p>
+                services
+            </p>
         </div>
         <b className='font-semibold text-6xl mt-4'>บริการของเรา</b>
         <p className='service-subtext text-center mt-4 font-normal'>ครบทุกบริการด้านการออกแบบและพัฒนาเว็ปไซต์ พร้อมขับเคลื่อน<br/>แบรนด์ของคุณสู่ความสำเร็จ</p>

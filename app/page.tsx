@@ -28,7 +28,7 @@ const Home = () => {
           <Process />
         </section>
         <Contact />
-        <Qoutes />
+        {/* <Qoutes /> */}
         <Footer />
       </SmoothWrapper>
     </main>

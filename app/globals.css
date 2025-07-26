@@ -155,6 +155,11 @@ body {
   @apply bg-[radial-gradient(circle_at_50%_-60%,_#3B7EF0_33%,_#171717_58%)]
 }
 
+.contact-bg {
+  background: radial-gradient(circle at 50% -80%, #F63A05 33%, #171717 58%);
+  
+}
+
 .project-bg {
   @apply bg-[radial-gradient(circle_at_50%_-20%,_#604BAD_10%,_#171717_50%)]
 }
